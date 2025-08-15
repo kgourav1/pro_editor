@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Photo Editor - Professional Image Enhancement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="app-title">Pro Photo Editor</h1>
+            <p class="app-subtitle">Professional Image Enhancement Suite</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📷</div>
+                        <h3>Drop your photo here</h3>
+                        <p>or <button class="btn btn--primary" id="browseBtn">Browse Files</button></p>
+                        <p class="upload-formats">Supports: JPG, PNG, WebP</p>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </section>
+
+            <!-- Editor Section -->
+            <section class="editor-section hidden" id="editorSection">
+                <div class="editor-layout">
+                    <!-- Image Display -->
+                    <div class="image-container">
+                        <div class="image-display">
+                            <canvas id="imageCanvas" class="main-canvas"></canvas>
+                        </div>
+                        
+                        <!-- Quick Analysis -->
+                        <div class="analysis-bar">
+                            <div class="analysis-item">
+                                <span class="analysis-label">Brightness:</span>
+                                <span class="analysis-value" id="brightnessValue">Good</span>
+                            </div>
+                            <div class="analysis-item">
+                                <span class="analysis-label">Contrast:</span>
+                                <span class="analysis-value" id="contrastValue">Normal</span>
+                            </div>
+                            <div class="analysis-item">
+                                <span class="analysis-label">Sharpness:</span>
+                                <span class="analysis-value" id="sharpnessValue">Sharp</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Image Controls -->
+                        <div class="image-controls">
+                            <button class="btn btn--outline" id="showOriginalBtn">Show Original</button>
+                            <button class="btn btn--secondary" id="resetBtn">Reset All</button>
+                            <button class="btn btn--primary" id="downloadBtn">Download Enhanced</button>
+                        </div>
+                    </div>
+
+                    <!-- Editing Controls -->
+                    <div class="controls-panel">
+                        <h3>Professional Enhancement</h3>
+                        
+                        <!-- Preset Suggestions -->
+                        <div class="suggestions-section">
+                            <h4>Quick Enhancements</h4>
+                            <div class="preset-buttons">
+                                <button class="btn btn--outline preset-btn" data-preset="auto">Auto Enhance</button>
+                                <button class="btn btn--outline preset-btn" data-preset="glow">Professional Glow</button>
+                                <button class="btn btn--outline preset-btn" data-preset="bright">Brighten</button>
+                            </div>
+                        </div>
+
+                        <!-- Manual Controls -->
+                        <div class="manual-controls">
+                            <h4>Manual Adjustments</h4>
+                            
+                            <div class="control-group">
+                                <label>Brightness</label>
+                                <input type="range" id="brightnessSlider" class="slider" min="-50" max="50" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Contrast</label>
+                                <input type="range" id="contrastSlider" class="slider" min="-30" max="50" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Professional Glow</label>
+                                <input type="range" id="glowSlider" class="slider" min="0" max="100" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Saturation</label>
+                                <input type="range" id="saturationSlider" class="slider" min="-30" max="50" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Clarity</label>
+                                <input type="range" id="claritySlider" class="slider" min="0" max="50" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Shadows</label>
+                                <input type="range" id="shadowsSlider" class="slider" min="-50" max="50" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                            
+                            <div class="control-group">
+                                <label>Highlights</label>
+                                <input type="range" id="highlightsSlider" class="slider" min="-50" max="50" value="0">
+                                <span class="value-display">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Simple Loading Indicator -->
+        <div class="loading-simple hidden" id="loadingIndicator">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p>Processing...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
